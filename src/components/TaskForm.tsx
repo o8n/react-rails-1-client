@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TextField, FormGroup, FormLabel, Input } from '@material-ui/core';
+import { Button, TextField, FormGroup, Input, Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 class TaskForm extends React.Component<any,any> {
   constructor(props) {
@@ -7,7 +7,7 @@ class TaskForm extends React.Component<any,any> {
 
     this.state = {
       title: '',
-      description: ''
+      desc: ''
     }
     this.createTask = this.createTask.bind(this);
   }
@@ -20,7 +20,7 @@ class TaskForm extends React.Component<any,any> {
       }),
       body: JSON.stringify({
         title: this.state.title,
-        description: this.state.description
+        desc: this.state.desc
       })
     });
 
@@ -33,7 +33,7 @@ class TaskForm extends React.Component<any,any> {
     }).finally(() => {
       this.setState({
         title: '',
-        description: ''
+        desc: ''
       })
     });
 
@@ -41,36 +41,42 @@ class TaskForm extends React.Component<any,any> {
   }
 
   render() {
-    let { title, description } = this.state;
+    let { title, desc } = this.state;
 
     return (
-      <TextField onSubmit={this.createTask}>
-        <FormGroup>
-          <FormLabel>Title</FormLabel>
-          <Input
-            type="text" value={title}
-            placeholder="Title"
-            onChange={(e) => {
-              this.setState({
-                title: e.target.value
-              })
-            }}
-          />
-        </FormGroup>
-        <FormGroup>
-          <FormLabel>Description</FormLabel>
-          <Input
-            type="text" value={description}
-            placeholder="Description"
-            onChange={(e) => {
-              this.setState({
-                description: e.target.value
-              })
-            }}
-          />
-        </FormGroup>
-        <Button>Create Task</Button>
-      </TextField>
+      <form>
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Calories</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <Input
+                type="text" value={title}
+                placeholder="title"
+                onChange={(e) => {
+                  this.setState({
+                    title: e.target.value
+                  })
+                }}
+              />
+              <Input
+                type="text" value={desc}
+                placeholder="description"
+                onChange={(e) => {
+                  this.setState({
+                    desc: e.target.value
+                  })
+                }}
+              />
+              {/* <Button type='submit'>Create Task</Button> */}
+              <input type="submit" value="Create task" />
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </form>
     )
   }
 }

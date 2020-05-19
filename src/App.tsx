@@ -46,6 +46,7 @@ class App extends React.Component<any,any> {
         <Header title='app' />
         <Container fixed>
           <TaskForm getTasks={this.getTasks} />
+          <br></br>
           <TaskTable tasks={tasks} getTasks={this.getTasks} />
         </Container>
       </div>

@@ -28,7 +28,7 @@ class TaskRow extends React.Component<any,any> {
     return (
       <tr>
         <td>{this.props.title}</td>
-        <td>{this.props.description}</td>
+        <td>{this.props.desc}</td>
         <td>
           <Button onClick={() => this.deleteTask(this.props.id)}>Delete</Button>
         </td>

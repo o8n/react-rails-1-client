@@ -10,6 +10,7 @@ class TaskTable extends React.Component<any,any> {
 
   render() {
     const { tasks, getTasks } = this.props;
+
     return (
       <Table>
         <thead>
@@ -20,13 +21,14 @@ class TaskTable extends React.Component<any,any> {
           </tr>
         </thead>
         <tbody>
+
           {tasks.map((task, index) => {
             return (
               <TaskRow 
                 key={index} 
                 id={task.id} 
                 title={task.title} 
-                description={task.description} 
+                desc={task.desc} 
                 getTasks={getTasks} 
               />
             )

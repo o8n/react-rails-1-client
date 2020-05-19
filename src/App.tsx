@@ -29,10 +29,10 @@ class App extends React.Component<any,any> {
     fetch(request).then(function (response) {
       return response.json();
       
-    }).then(function () {
-      this.setState({
-        tasks: []
-      });
+    // }).then(function () {
+    //   this.setState({
+    //     tasks: tasks
+    //   });
     }.bind(this)).catch(function (error) {
       console.error(error);
     });
